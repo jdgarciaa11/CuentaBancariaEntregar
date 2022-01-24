@@ -8,7 +8,6 @@ public class CuentaBancaria {
 
     //Constructor por defecto
     public CuentaBancaria() {
-
     }
 
     //Constructor con todos los parametros
@@ -71,6 +70,9 @@ public class CuentaBancaria {
         return operacion;
     }
 
+    //Metodo para retirar dinero, yo pienso que hacer un metodo
+    //para verificar si el saldo es suficiente ya que se usara
+    //de nuevo en el metodo transferencia y asi no crear una duplicidad de codigo
     public boolean retirarDinero(double dinero) {
         boolean operacion = false;
         if (saldoSuficiente(dinero)) {
@@ -80,6 +82,8 @@ public class CuentaBancaria {
         return operacion;
     }
 
+    //Metodo para pasar dinero de una cuenta a otra, en ella recibe como parametro
+    //la cuenta de destino como el dinero que quieras transferir
     public boolean transferencia(CuentaBancaria destino, double dinero){
         boolean operacion = false;
         if (this.retirarDinero(dinero)){
@@ -89,6 +93,9 @@ public class CuentaBancaria {
         return operacion;
     }
 
+
+    //Verifica si el saldo es suficiente para realizar tanto la transferencia como
+    //el retiro del dinero
     private boolean saldoSuficiente(double dinero) {
         boolean operacion = false;
         if (getSaldo() - dinero >= 0) {
